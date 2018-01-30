@@ -1,95 +1,26 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<div class="container">
+    <div class="page-header">
+        <h1>Welcome to Learn!</h1>
+        <p>Learn is a spaced repetition learning tool based on the SM-2 algorithm.</p>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <p>This website is a very rough prototype at this point. If there proves to be any interest in it I may spend some time spiffing it up.  Otherwise, it's just here to scratch my own itch.</p>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+        <p>Using Learn should be very simple.  When you log in you can create a new "Subject" this can be a school subject like English or Math, or it could just be the subject of your questions like the title of a book you're reading.</p>
 
-            .full-height {
-                height: 100vh;
-            }
+        <p>Once you create a subject you can add questions.  There are three fields for questions.  The question you're asking, the answer and optionally some notes for reference.</p>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        <p>Once you've created a bunch of questions, you can "Review" your questions by clicking on "Review" in the nav bar.  If there are any questions scheduled to be reviewed that day you'll be asked them one at a time.</p>
 
-            .position-ref {
-                position: relative;
-            }
+        <p>This program doesn't grade you automatically, but rather you look at the question, click to see the answer and score yourself one of six scores (0-5).  There are descriptions of what each score means.</p>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+        <p>Based on when you reviewed the question last and what your score was, the system will automatically figure out when you should review the question next.</p>
 
-            .content {
-                text-align: center;
-            }
+        <p>If you don't answer the question correctly or have a hard time answering it (a score less than 4) you'll be asked the question again during the current review session until you score at least a 4.</p>
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        <p>This application is open source and is available on GitHub. If you have any questions, either submit an issue on GitHub or contact me.</p>
+    </div>
+</div>
+@endsection

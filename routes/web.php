@@ -18,3 +18,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get(
+    'subjects/{subject}/delete',
+    'SubjectController@delete'
+)->name('subjects.delete');
+
+Route::resource('subjects', 'SubjectController');
+
+Route::get(
+    'subjects/{subject}/questions/{question}/delete',
+    'QuestionController@delete'
+)->name('subjects.questions.delete');
+
+Route::resource('subjects.questions', 'QuestionController');
+
+Route::get('review', 'ReviewController@index')->name('review.index');
+Route::get('review/done', 'ReviewController@done')->name('review.done');
+Route::get('review/{question}', 'ReviewController@ask')->name('review.ask');
+Route::get('review/{question}/answer', 'ReviewController@answer')->name('review.answer');
+Route::post('review/{question}/answer', 'ReviewController@update')->name('review.update');
