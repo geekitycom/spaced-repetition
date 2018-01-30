@@ -4,7 +4,7 @@
 <div class="container">
     <div class="page-header">
         <h1>Welcome to Learn!</h1>
-        <p>Learn is a spaced repetition learning tool based on the SM-2 algorithm.</p>
+        <p>Learn is a spaced repetition learning tool based on the <a href="https://www.supermemo.com/english/ol/sm2.htm">SM-2 algorithm</a>.</p>
 
         <p>This website is a very rough prototype at this point. If there proves to be any interest in it I may spend some time spiffing it up.  Otherwise, it's just here to scratch my own itch.</p>
 
@@ -20,7 +20,7 @@
 
         <p>If you don't answer the question correctly or have a hard time answering it (a score less than 4) you'll be asked the question again during the current review session until you score at least a 4.</p>
 
-        <p>This application is open source and is available on GitHub. If you have any questions, either submit an issue on GitHub or contact me.</p>
+        <p>This application is open source and is available on <a href="https://github.com/geekitycom/spaced-repetition">GitHub</a>. If you have any questions, either <a href="https://github.com/geekitycom/spaced-repetition/issues">submit an issue on GitHub</a> or <a href="https://blog.andrewshell.org/contact-andrew/">contact me</a>.</p>
     </div>
 </div>
 @endsection
