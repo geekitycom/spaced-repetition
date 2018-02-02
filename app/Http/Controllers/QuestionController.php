@@ -22,6 +22,7 @@ class QuestionController extends Controller
      */
     public function index(Subject $subject)
     {
+        $this->authorize('view', $subject);
         return view('subjects.questions.index', compact('subject'));
     }
 
@@ -33,6 +34,9 @@ class QuestionController extends Controller
      */
     public function create(Subject $subject)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('create', Question::class);
+
         return view('subjects.questions.create', compact('subject'));
     }
 
@@ -45,6 +49,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request, Subject $subject)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('create', Question::class);
+
         $question = new Question;
 
         $question->user()->associate(Auth::user());
@@ -71,6 +78,9 @@ class QuestionController extends Controller
      */
     public function show(Subject $subject, Question $question)
     {
+        $this->authorize('view', $subject);
+        $this->authorize('view', $question);
+
         return view('subjects.questions.show', compact('subject', 'question'));
     }
 
@@ -83,6 +93,9 @@ class QuestionController extends Controller
      */
     public function edit(Subject $subject, Question $question)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('update', $question);
+
         return view('subjects.questions.edit', compact('subject', 'question'));
     }
 
@@ -96,6 +109,9 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Subject $subject, Question $question)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('update', $question);
+
         $question->title = $request->title;
         $question->answer = $request->answer;
         $question->notes = $request->notes ?? '';
@@ -114,6 +130,9 @@ class QuestionController extends Controller
      */
     public function delete(Subject $subject, Question $question)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('delete', $question);
+
         return view('subjects.questions.delete', compact('subject', 'question'));
     }
 
@@ -126,6 +145,9 @@ class QuestionController extends Controller
      */
     public function destroy(Subject $subject, Question $question)
     {
+        $this->authorize('update', $subject);
+        $this->authorize('delete', $question);
+
         $question->delete();
 
         return redirect()->route('subjects.questions.index', ['subject' => $subject]);

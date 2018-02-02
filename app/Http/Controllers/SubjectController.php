@@ -32,7 +32,9 @@ class SubjectController extends Controller
      */
     public function create()
     {
-         return view('subjects.create');
+        $this->authorize('create', Subject::class);
+
+        return view('subjects.create');
     }
 
     /**
@@ -43,6 +45,8 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Subject::class);
+
         $subject = new Subject;
 
         $subject->user()->associate(Auth::user());
@@ -61,6 +65,8 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
+        $this->authorize('view', $subject);
+
         return redirect()->route('subjects.questions.index', ['subject' => $subject]);
     }
 
@@ -72,6 +78,8 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
+        $this->authorize('update', $subject);
+
         return view('subjects.edit', compact('subject'));
     }
 
@@ -84,6 +92,8 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
+        $this->authorize('update', $subject);
+
         $subject->title = $request->title;
 
         $subject->save();
@@ -100,6 +110,8 @@ class SubjectController extends Controller
      */
     public function delete(Subject $subject)
     {
+        $this->authorize('delete', $subject);
+
         return view('subjects.delete', compact('subject'));
     }
 
@@ -111,6 +123,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
+        $this->authorize('delete', $subject);
+
         $subject->delete();
 
         return redirect()->route('subjects.index');
