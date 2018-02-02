@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:url" content="{{ URL::current() }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}" />
+    <meta property="og:description" content="Learn is a spaced repetition learning tool based on the SM-2 algorithm." />
+    <meta property="og:image" content="{!! url('/images/pexels-photo-247819.jpg'); !!}" />
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title ?? config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
