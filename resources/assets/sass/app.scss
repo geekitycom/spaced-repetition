@@ -7,3 +7,20 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Bootswatch
+// @import "readable/bootswatch";
+
+html, body {
+    height: 100%;
+}
+
+@media (min-width: $screen-sm-min) {
+    .homepage {
+        background-image: url('/images/books-education-school-literature-48126.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 0;
+        min-height: 100%;
+    }
+}
