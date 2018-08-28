@@ -19,7 +19,7 @@ class QuestionPolicy
      */
     public function view(User $user, Question $question)
     {
-        return $user->id === $question->user_id;
+        return $user->id == $question->user_id;
     }
 
     /**
@@ -42,7 +42,7 @@ class QuestionPolicy
      */
     public function update(User $user, Question $question)
     {
-        return $user->id === $question->user_id;
+        return $user->id == $question->user_id;
     }
 
     /**
@@ -54,6 +54,6 @@ class QuestionPolicy
      */
     public function delete(User $user, Question $question)
     {
-        return $user->id === $question->user_id;
+        return $user->id == $question->user_id;
     }
 }

@@ -19,7 +19,7 @@ class SubjectPolicy
      */
     public function view(User $user, Subject $subject)
     {
-        return $user->id === $subject->user_id;
+        return $user->id == $subject->user_id;
     }
 
     /**
@@ -42,7 +42,7 @@ class SubjectPolicy
      */
     public function update(User $user, Subject $subject)
     {
-        return $user->id === $subject->user_id;
+        return $user->id == $subject->user_id;
     }
 
     /**
@@ -54,6 +54,6 @@ class SubjectPolicy
      */
     public function delete(User $user, Subject $subject)
     {
-        return $user->id === $subject->user_id;
+        return $user->id == $subject->user_id;
     }
 }
